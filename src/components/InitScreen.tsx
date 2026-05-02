@@ -1,4 +1,4 @@
-import { Loader2, Settings } from 'lucide-react'
+import { Guitar, Loader2, Settings } from 'lucide-react'
 
 type Props = {
   onInitialize: () => void | Promise<void>
@@ -10,9 +10,16 @@ export function InitScreen({ onInitialize, initializing, error }: Props) {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-indigo-950 px-4 py-12">
       <div className="w-full max-w-md rounded-xl bg-white p-8 shadow-xl">
-        <h1 className="text-center text-3xl font-bold tracking-tight text-gray-900">
-          Bass Groove Coach
-        </h1>
+        <div className="flex items-center justify-center gap-3">
+          <Guitar
+            className="h-10 w-10 shrink-0 text-indigo-600 sm:h-11 sm:w-11"
+            aria-hidden
+            strokeWidth={1.75}
+          />
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+            Bass Groove Coach
+          </h1>
+        </div>
         <p className="mt-2 text-center text-gray-600">
           Practice your micro-timing with real-time feedback
         </p>

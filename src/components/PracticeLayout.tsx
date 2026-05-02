@@ -1,3 +1,4 @@
+import { Guitar } from 'lucide-react'
 import { useState } from 'react'
 import { useAudioEngine } from '../audio/useAudioEngine'
 import { PracticeControl } from './PracticeControl'
@@ -17,9 +18,16 @@ export function PracticeLayout() {
   return (
     <div className="min-h-screen bg-indigo-950 px-4 pb-12 pt-10">
       <header className="mx-auto max-w-6xl text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-white">
-          Bass Groove Coach
-        </h1>
+        <div className="flex items-center justify-center gap-3">
+          <Guitar
+            className="h-10 w-10 shrink-0 text-indigo-200 sm:h-12 sm:w-12"
+            aria-hidden
+            strokeWidth={1.75}
+          />
+          <h1 className="text-4xl font-bold tracking-tight text-white">
+            Bass Groove Coach
+          </h1>
+        </div>
         <p className="mt-2 text-indigo-200">
           Practice your micro-timing with real-time feedback
         </p>
