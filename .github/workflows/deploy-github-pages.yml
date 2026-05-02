@@ -20,8 +20,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      # Use Node 24-based action majors (avoids Node 20 deprecation warnings).
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: '22'
           cache: npm
@@ -31,7 +32,7 @@ jobs:
           # Project site: https://<owner>.github.io/<repo>/
           GITHUB_PAGES_BASE: /${{ github.event.repository.name }}/
         run: npm run build
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: dist
 
@@ -42,5 +43,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # v4.0.6+ runs on Node 24
       - uses: actions/deploy-pages@v4
         id: deployment
